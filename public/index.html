@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #eef6f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #1f618d, #34495e);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1abc9c;
+    }
+
+    .hero {
+      background-image: url('https://www.google.com/imgres?q=dog%20pet%20store&imgurl=https%3A%2F%2Fmypetz.co.in%2Fwp-content%2Fuploads%2F2023%2F09%2Fwaago-munchies.jpg&imgrefurl=https%3A%2F%2Fmypetz.co.in%2F&docid=Z1sXvSdJJPtyVM&tbnid=-yCyyCkysOjRMM&vet=12ahUKEwjAiMSrmMCMAxUVg68BHdc5EzAQM3oECCQQAA..i&w=1920&h=550&hcb=2&ved=2ahUKEwjAiMSrmMCMAxUVg68BHdc5EzAQM3oECCQQAA');
+      
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .category img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .category h3 {
+      margin: 15px;
+      font-size: 20px;
+      color: #1f618d;
+    }
+
+    main {
+      padding: 20px;
+      background: #f2f9fb;
+    }
+
+    section {
+      margin-bottom: 60px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    section:nth-of-type(1) {
+      background-color: #fffaf0;
+    }
+
+    section:nth-of-type(2) {
+      background-color: #f0f8ff;
+    }
+
+    section:nth-of-type(3) {
+      background-color: #fef9f4;
+    }
+
+    section:nth-of-type(4) {
+      background-color: #f5fafd;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      border-left: 5px solid #1f618d;
+      padding-left: 10px;
+      font-size: 24px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+      color: #1f618d;
+      font-size: 18px;
+    }
+
+    .product p {
+      color: #d35400;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .product button {
+      background: linear-gradient(to right, #d35400, #e67e22);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .product button:hover {
+      background: linear-gradient(to right, #ba4a00, #d35400);
+    }
+
+    footer {
+      background-color: #1f618d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-top: 10px;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🐶 Pet Store 🐱</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="dash.html">Dashboard</a>
+      <a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="#" id="logout-link" style="display: none;">Logout</a>
+      <a href="login.html" id="login-link">Login</a>
+      <a href="register.html" id="register-link">Register</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Starting ₹149 | Pet Essentials</h2>
+    <p>Great deals on food, toys, and accessories for your furry friends!</p>
+  </div>
+
+  <div class="categories">
+    <div class="category">
+      <img src="https://www.all4pets.in/wp-content/uploads/2024/01/moist-food.jpg" alt="Dog Foods">
+      <h3>Dog Food</h3>
+    </div>
+    <div class="category">
+      <img src="https://m.media-amazon.com/images/I/31xt7VWNpDL._AC_SR250,250_QL65_.jpg" alt="Dog Beds">
+      <h3>Dog Beds</h3>
+    </div>
+    <div class="category">
+      <img src="https://images.ctfassets.net/82d3r48zq721/r0ScftLsdRn5wEbSM7nUY/f28472f52a22defbd3791988935830a6/Puppy-chewing-dog-toy_resized.jpg?w=800&q=50" alt="Dog Toys">
+      <h3>Dog Toys</h3>
+    </div>
+    <div class="category">
+      <img src="https://m.media-amazon.com/images/I/617HU0yR65L._AC_UL480_FMwebp_QL65_.jpg" alt="Dog Chains">
+      <h3>Dog Chains</h3>
+    </div>
+  </div>
+
+  <main>
+    <!-- Dog Food Section -->
+    <section>
+      <h2>🥣 Dog Food</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://supertails.com/cdn/shop/files/Frame344684045_b72c60c4-3241-4f9b-8262-a3424316eb33_600x.png?v=1727776541" alt="Dry Dog Food">
+          <h3>Dry Dog Food</h3>
+          <p>₹799</p>
+          <button onclick="addToCart('Dry Dog Food', 799, 'https://supertails.com/cdn/shop/files/Frame344684045_b72c60c4-3241-4f9b-8262-a3424316eb33_600x.png?v=1727776541')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSS8hn0nw0cFkcI1uK95bL8hIfn39k7UKMskzgmNJAY1zu_7vHqdxbGBac95TBrk008CpP5rK9Sd6VlUJtwUo9vysKixK_Nxrvpd8ehn8hJlr3liKgnCGfM1Q" alt="Pedigree Puppy Food">
+          <h3>Pedigree Puppy Food</h3>
+          <p>₹499</p>
+          <button onclick="addToCart('Pedigree Puppy Food', 499, 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSS8hn0nw0cFkcI1uK95bL8hIfn39k7UKMskzgmNJAY1zu_7vHqdxbGBac95TBrk008CpP5rK9Sd6VlUJtwUo9vysKixK_Nxrvpd8ehn8hJlr3liKgnCGfM1Q')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTqydB7tOs3aFHOXW0I3i26hh65yVlKSTpRHojSNJMgBKR_0pR3FDobi04uPmepe3dhixAkgu8EY5VLOSNC6WwDd8-G9d4ACRWTOWdAJ6qT1S7vTmW6O7xk-v4" alt="Meat Jerky">
+          <h3>Meat Jerky Treats</h3>
+          <p>₹349</p>
+          <button onclick="addToCart('Meat Jerky Treats', 349, 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTqydB7tOs3aFHOXW0I3i26hh65yVlKSTpRHojSNJMgBKR_0pR3FDobi04uPmepe3dhixAkgu8EY5VLOSNC6WwDd8-G9d4ACRWTOWdAJ6qT1S7vTmW6O7xk-v4')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Dog Beds Section -->
+    <section>
+      <h2>🛏️ Dog Beds</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/81coJXdfF+L._AC_UL480_FMwebp_QL65_.jpg" alt="Comfy Dog Bed">
+          <h3>Comfy Dog Bed</h3>
+          <p>₹1299</p>
+          <button onclick="addToCart('Comfy Dog Bed', 1299, 'https://m.media-amazon.com/images/I/81coJXdfF+L._AC_UL480_FMwebp_QL65_.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/81aO7KvLU4L._AC_UF1000,1000_QL80_.jpg" alt="Round Pet Bed">
+          <h3>Round Cozy Bed</h3>
+          <p>₹999</p>
+          <button onclick="addToCart('Round Cozy Bed', 999, 'https://m.media-amazon.com/images/I/81aO7KvLU4L._AC_UF1000,1000_QL80_.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXVydHCtp-S7Vma0J1eZ03HIrlgbWDhfw28w3C0FWNkwxBLArDBR3U2x1z81wzDl9tiZOTNInKk_dRjQA3DzfEPWd3tLRxgFbxHpk9pok" alt="Orthopedic Bed">
+          <h3>Orthopedic Bed</h3>
+          <p>₹1499</p>
+          <button onclick="addToCart('Orthopedic Bed', 1499, 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRXVydHCtp-S7Vma0J1eZ03HIrlgbWDhfw28w3C0FWNkwxBLArDBR3U2x1z81wzDl9tiZOTNInKk_dRjQA3DzfEPWd3tLRxgFbxHpk9pok')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Dog Toys Section -->
+    <section>
+      <h2>🧸 Dog Toys</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/71BlrAcQnCS._AC_UL480_FMwebp_QL65_.jpg" alt="Chew Toy">
+          <h3>Chew Toy</h3>
+          <p>₹299</p>
+          <button onclick="addToCart('Chew Toy', 299, 'https://m.media-amazon.com/images/I/71BlrAcQnCS._AC_UL480_FMwebp_QL65_.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://images.meesho.com/images/products/410347780/1qqik_1200.jpg" alt="Plush Toy">
+          <h3>Plush Toy</h3>
+          <p>₹349</p>
+          <button onclick="addToCart('Plush Toy', 349, 'https://images.meesho.com/images/products/410347780/1qqik_1200.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/617NApD-SoL._SX679_.jpg" alt="Interactive Ball">
+          <h3>Interactive Ball</h3>
+          <p>₹379</p>
+          <button onclick="addToCart('Interactive Ball', 379, 'https://m.media-amazon.com/images/I/617NApD-SoL._SX679_.jpg')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Dog Chains Section -->
+    <section>
+      <h2>🔗 Dog Chains</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/617HU0yR65L._SX300_SY300_QL70_FMwebp_.jpg" alt="Steel Chain">
+          <h3>Steel Chain</h3>
+          <p>₹599</p>
+          <button onclick="addToCart('Steel Chain', 599, 'https://m.media-amazon.com/images/I/617HU0yR65L._SX300_SY300_QL70_FMwebp_.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTVY6qjGC2Q0cV8d0S7WGj_kbWel99nXeu4BLZKnTPNW5QSNRKD8q7WgKPQ9TRDDd9Jk0djEXA--2y0pE182A0MNNw26YPVObzAbOA9GoepYiklxnBe9nUxBZ-la8RNt0knuvNgpA&usqp=CAc" alt="Nylon Leash">
+          <h3>Nylon Leash</h3>
+          <p>₹349</p>
+          <button onclick="addToCart('Nylon Leash', 349, 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTVY6qjGC2Q0cV8d0S7WGj_kbWel99nXeu4BLZKnTPNW5QSNRKD8q7WgKPQ9TRDDd9Jk0djEXA--2y0pE182A0MNNw26YPVObzAbOA9GoepYiklxnBe9nUxBZ-la8RNt0knuvNgpA&usqp=CAc')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/416EawCOknL._AC_UF1000,1000_QL80_.jpg" alt="Heavy Duty Chain">
+          <h3>Heavy Duty Chain</h3>
+          <p>₹699</p>
+          <button onclick="addToCart('Heavy Duty Chain', 699, 'https://m.media-amazon.com/images/I/416EawCOknL._AC_UF1000,1000_QL80_.jpg')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script>
+  function addToCart(name, price, image) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, image });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${name} has been added to your cart.`);
+  }
+
+    window.onload = function () {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').innerText = cart.length;
+    };
+
+    function filterProducts(keyword) {
+      const lowerKeyword = keyword.toLowerCase();
+      document.querySelectorAll('.product').forEach(product => {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        product.style.display = title.includes(lowerKeyword) ? '' : 'none';
+      });
+    }
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (isLoggedIn) {
+    document.getElementById("login-link").style.display = "none";
+    document.getElementById("register-link").style.display = "none";
+  }
+  </script>
+
+
+</body>
+</html>

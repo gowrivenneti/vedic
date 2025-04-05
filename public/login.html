@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e8f0fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #1f618d;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .login-container button {
+      background: linear-gradient(to right, #1f618d, #2980b9);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .login-container button:hover {
+      background: linear-gradient(to right, #154360, #1f618d);
+    }
+
+    .login-container p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .login-container a {
+      color: #1f618d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="email" class="input-field" placeholder="Enter Email" name="email" required>
+            <input type="password" class="input-field" placeholder="Enter Password" name="password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot password?</a>
+    </div>
+
+</body>
+</html>
